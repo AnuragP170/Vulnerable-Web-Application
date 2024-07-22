@@ -24,9 +24,9 @@ pipeline { // This is my personal test to try all labs in one place
         //     }
         // }
     }
-    post {
-        always {
-            recordIssues enabledForFailure: true, tool: sonarQube()
-        }
-    }
+    // post {
+    //     always {
+    //         recordIssues enabledForFailure: true, tool: sonarQube()
+    //     }
+    // }
 }
