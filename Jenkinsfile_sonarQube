@@ -1,4 +1,4 @@
-pipeline { // This is my personal test to try all labs in one place
+pipeline {
     agent any
     stages {
         stage ('Checkout') {
@@ -6,12 +6,6 @@ pipeline { // This is my personal test to try all labs in one place
                 git branch:'master', url: 'https://github.com/OWASP/Vulnerable-Web-Application.git'
             }
         }
-
-		stage('OWASP DependencyCheck') {
-			steps {
-				dependencyCheck additionalArguments: '--noupdate --nvdApiKey "176cfd53-8ad1-40bd-a460-c10570a164d6" --format HTML --format XML ', odcInstallation: 'OWASP DependencyCheck'
-			}
-		}
 
         stage('Code Quality Check via SonarQube') {
             steps {
