@@ -29,4 +29,10 @@ pipeline { // This is my personal test to try all labs in one place
     //         recordIssues enabledForFailure: true, tool: sonarQube()
     //     }
     // }
+
+    	post {
+		success {
+			dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+		}
+	}
 }
